@@ -1,4 +1,4 @@
-# example
+# loja_hasura
 
 A new Flutter project.
 
