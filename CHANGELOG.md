@@ -1,4 +1,7 @@
-## 1.2.2
+## 1.2.2+
+- Fix bugs
+- Added cleanCache in Hasura instance
+- Added LocalStorageInMemory
 
 
 ## 1.2.1
