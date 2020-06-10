@@ -58,7 +58,8 @@ class HasuraConnectBase implements HasuraConnect {
   @override
   bool get isConnected => _isConnected;
 
-  StreamController<bool> _isConnectedController = StreamController<bool>.broadcast();
+  StreamController<bool> _isConnectedController =
+      StreamController<bool>.broadcast();
 
   @override
   Stream<bool> get isConnectedStream => this._isConnectedController.stream;
@@ -111,7 +112,7 @@ class HasuraConnectBase implements HasuraConnect {
   @override
   Snapshot subscription(String query,
       {String key, Map<String, dynamic> variables}) {
-    if (!RegExp(r"^(?:\s+)?subscription(?:\s|\{)").hasMatch(query)]) {
+    if (!RegExp(r"^(?:\s+)?subscription(?:\s|\{)").hasMatch(query)) {
       query = 'subscription $query';
     }
 
@@ -125,7 +126,7 @@ class HasuraConnectBase implements HasuraConnect {
   @override
   Snapshot cachedQuery(String query,
       {String key, Map<String, dynamic> variables}) {
-    if (!RegExp(r"^(?:\s+)?query(?:\s|\{)").hasMatch(query)]) {
+    if (!RegExp(r"^(?:\s+)?query(?:\s|\{)").hasMatch(query)) {
       query = 'query $query';
     }
 
@@ -206,8 +207,8 @@ class HasuraConnectBase implements HasuraConnect {
 
   @override
   void reconnect() {
-      this._numbersOfConnectionAttempts = 0;
-      this._connect();
+    this._numbersOfConnectionAttempts = 0;
+    this._connect();
   }
 
   @override
@@ -217,13 +218,13 @@ class HasuraConnectBase implements HasuraConnect {
 
   void _connect() async {
     if (this._reconnectionAttemp != null && this._reconnectionAttemp > 0) {
-        if (this._numbersOfConnectionAttempts >= this._reconnectionAttemp) {
-          print('maximum connection attempt numbers reached');
-          this._isConnected = false;
-          this._disconnect();
-          return;
-        } 
-        this._numbersOfConnectionAttempts++;
+      if (this._numbersOfConnectionAttempts >= this._reconnectionAttemp) {
+        print('maximum connection attempt numbers reached');
+        this._isConnected = false;
+        this._disconnect();
+        return;
+      }
+      this._numbersOfConnectionAttempts++;
     }
     print('hasura connecting...');
     try {
@@ -308,7 +309,7 @@ class HasuraConnectBase implements HasuraConnect {
 
   @override
   Future query(String doc, {Map<String, dynamic> variables}) async {
-    if (!RegExp(r"^(?:\s+)?query(?:\s|\{)").hasMatch(query)]) {
+    if (!RegExp(r"^(?:\s+)?query(?:\s|\{)").hasMatch(doc)) {
       doc = 'query $doc';
     }
     var jsonMap = {'query': doc, 'variables': variables};
@@ -319,7 +320,7 @@ class HasuraConnectBase implements HasuraConnect {
   @override
   Future mutation(String doc,
       {Map<String, dynamic> variables, bool tryAgain = true}) async {
-    if (!RegExp(r"^(?:\s+)?mutation(?:\s|\{)").hasMatch(query)]) {
+    if (!RegExp(r"^(?:\s+)?mutation(?:\s|\{)").hasMatch(doc)) {
       doc = 'mutation $doc';
     }
     var jsonMap = {'query': doc, 'variables': variables};
@@ -380,10 +381,11 @@ class HasuraConnectBase implements HasuraConnect {
     await _controller.close();
   }
 
+  @override
+  Future cleanCache() {
+    return Future.wait([
+      _localStorageMutation.clear(),
+      _localStorageCache.clear(),
+    ]);
+  }
 }
-
-/*
-
-
-
-*/

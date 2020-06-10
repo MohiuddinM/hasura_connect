@@ -59,4 +59,7 @@ abstract class HasuraConnect {
   ///exec mutation in Graphql Engine
   Future mutation(String doc,
       {Map<String, dynamic> variables, bool tryAgain = true});
+
+  ///Remove all application cache
+  Future cleanCache();
 }
