@@ -1,7 +1,7 @@
-import 'package:hasura_connect/src/snapshot/snapshot.dart';
+import 'package:hasura/src/snapshot/snapshot.dart';
 
-import '../../hasura_connect.dart';
-import 'hasura_connect_base.dart';
+import '../../hasura.dart';
+import 'hasura_base.dart';
 
 abstract class HasuraConnect {
   ///[url] -> url to graph client

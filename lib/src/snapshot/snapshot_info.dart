@@ -1,4 +1,4 @@
-import 'package:hasura_connect/src/utils/utils.dart' as utils;
+import 'package:hasura/src/utils/utils.dart' as utils;
 import 'package:uuid/uuid.dart';
 
 class SnapshotInfo {

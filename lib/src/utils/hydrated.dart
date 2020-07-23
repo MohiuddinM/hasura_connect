@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:hasura_connect/src/utils/subject.dart';
-import 'package:hasura_connect/src/utils/value_stream.dart';
+import 'package:hasura/src/utils/subject.dart';
+import 'package:hasura/src/utils/value_stream.dart';
 
-import '../../hasura_connect.dart';
+import '../../hasura.dart';
 import 'defer.dart';
 import 'startwith_stream_transformer.dart';
 

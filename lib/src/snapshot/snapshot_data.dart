@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:hasura_connect/src/core/hasura.dart';
-import 'package:hasura_connect/src/exceptions/hasura_error.dart';
-import 'package:hasura_connect/src/services/local_storage.dart';
-import 'package:hasura_connect/src/snapshot/snapshot_info.dart';
-import 'package:hasura_connect/src/utils/hydrated.dart';
+import 'package:hasura/src/core/hasura.dart';
+import 'package:hasura/src/exceptions/hasura_error.dart';
+import 'package:hasura/src/services/local_storage.dart';
+import 'package:hasura/src/snapshot/snapshot_info.dart';
+import 'package:hasura/src/utils/hydrated.dart';
 
-import '../../hasura_connect.dart';
+import '../../hasura.dart';
 import 'snapshot.dart';
 
 class SnapshotData<T> extends Snapshot<T> {

@@ -1,10 +1,12 @@
-# Hasura Connect Package
+# Hasura Package
+
+This package is a fork of `hasura_connect` package
 
 Connect your Flutter/Dart apps to Hasura simply.
 
 ## What can he do
 
-  The hasura_connect is designed to facilitate Hasura's integration with Flutter applications, leveraging the full power of Graphql.
+  This package is designed to facilitate Hasura's integration with Flutter applications, leveraging the full power of Graphql.
 
 - Use Query, Mutation and Subscriptions the easy way.
 - Offline cache for Subscription and Mutation made from a Snapshot.
@@ -16,11 +18,7 @@ Connect your Flutter/Dart apps to Hasura simply.
 Add dependency in your pubspec.yaml file:
 ```
 dependencies:
-  hasura_connect:
-```
-or use Slidy:
-```
-slidy install hasura_connect
+  hasura:
 ```
 
 ## Usage
@@ -30,7 +28,7 @@ A simple usage example:
 ```dart
 
 //import
-import 'package:hasura_connect/hasura_connect.dart';
+import 'package:hasura/hasura.dart';
 
 String url = 'http://localhost:8080/v1/graphql';
 HasuraConnect hasuraConnect = HasuraConnect(url);
@@ -198,7 +196,4 @@ This is currently our roadmap, please feel free to request additions/changes.
 
 ## Features and bugs
 
-Please send feature requests and bugs at the [issue tracker](https://github.com/Flutterando/hasura_connect/issues).
-
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+Please send feature requests and bugs at the [issue tracker](https://github.com/MohiuddinM/hasura_connect/issues).
