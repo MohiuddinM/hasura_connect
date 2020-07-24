@@ -6,9 +6,9 @@ homepage: https://github.com/MohiuddinM/hasura_connect
 dependencies:
   websocket: ^0.0.5
   http: ^0.12.2
-  hive: ^1.4.1+1
-  uuid: ^2.2.0
-  meta: ^1.2.2
+  hive: ^1.0.0
+  uuid: ^2.0.0
+  meta: ^1.0.0
 
 
 dev_dependencies:
