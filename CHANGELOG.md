@@ -1,3 +1,6 @@
+## 1.4.2
+- minor changes
+
 ## 1.4.1
 - remove dart:io dependency
 
