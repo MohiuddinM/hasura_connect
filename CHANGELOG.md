@@ -1,3 +1,6 @@
+## 1.4.1
+- remove dart:io dependency
+
 ## 1.4.0
 - remove flutter dependency
 
