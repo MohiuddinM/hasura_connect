@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:hasura/src/core/hasura.dart';
 import 'package:hasura/src/exceptions/hasura_error.dart';
 import 'package:hasura/src/services/local_storage.dart';
 import 'package:hasura/src/snapshot/snapshot_info.dart';
 import 'package:hasura/src/utils/hydrated.dart';
+import 'package:meta/meta.dart';
 
 import '../../hasura.dart';
 import 'snapshot.dart';

@@ -9,16 +9,14 @@ abstract class HasuraConnect {
   ///[token] -> change token jwt
   ///[reconnectionAttemp] -> Default is 0 = unlimited connection attempt;
   factory HasuraConnect(String url,
-      {Future<String> Function(bool isError) token,
-      LocalStorage Function() localStorageDelegate,
-      Map<String, String> headers,
-      int reconnectionAttempt = 0}) {
-    return HasuraConnectBase(url,
-        headers: headers,
-        token: token,
-        reconnectionAttemp: reconnectionAttempt,
-        localStorageDelegate:
-            localStorageDelegate ?? () => LocalStorageSharedPreferences());
+      {Future<String> Function(bool isError) token, LocalStorage Function() localStorageDelegate, Map<String, String> headers, int reconnectionAttempt = 0}) {
+    return HasuraConnectBase(
+      url,
+      headers: headers,
+      token: token,
+      reconnectionAttemp: reconnectionAttempt,
+      localStorageDelegate: localStorageDelegate ?? () => LocalStorageHive('hasura_storage'),
+    );
   }
 
   bool get isConnected;
@@ -46,19 +44,16 @@ abstract class HasuraConnect {
   void disconnect();
 
   ///get [Snapshot] from Subscription connection
-  Snapshot subscription(String query,
-      {String key, Map<String, dynamic> variables});
+  Snapshot subscription(String query, {String key, Map<String, dynamic> variables});
 
   ///get cached query [Snapshot]
-  Snapshot cachedQuery(String query,
-      {String key, Map<String, dynamic> variables});
+  Snapshot cachedQuery(String query, {String key, Map<String, dynamic> variables});
 
   ///exec query in Graphql Engine
   Future query(String doc, {Map<String, dynamic> variables});
 
   ///exec mutation in Graphql Engine
-  Future mutation(String doc,
-      {Map<String, dynamic> variables, bool tryAgain = true});
+  Future mutation(String doc, {Map<String, dynamic> variables, bool tryAgain = true});
 
   ///Remove all application cache
   Future cleanCache();

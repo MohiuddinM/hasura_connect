@@ -1,9 +1,8 @@
-import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 
 abstract class Snapshot<T> extends Stream<T> {
   ///Transform [Snapshot] in other type
-  Snapshot<S> convert<S>(S Function(dynamic) convert,
-      {@required Map Function(S object) cachePersist});
+  Snapshot<S> convert<S>(S Function(dynamic) convert, {@required Map Function(S object) cachePersist});
 
   ///change variables of subscription query
   void changeVariable(Map<String, dynamic> variables);
