@@ -12,7 +12,10 @@ class LocalStorageHive extends LocalStorage {
   @override
   Future init(String name) async {
     if (_completer.isCompleted) return;
-    assert(LocalStorage.databasePath != null, 'please set the LocalStorage.databasePath before using hasura');
+    assert(
+      LocalStorage.databasePath != null,
+      'please set the LocalStorage.databasePath before using hasura',
+    );
 
     Hive.init(LocalStorage.databasePath);
     if (Hive.isBoxOpen(name)) {
@@ -25,7 +28,8 @@ class LocalStorageHive extends LocalStorage {
   @override
   Future<Map<String, dynamic>> getAll() async {
     var box = await _completer.future;
-    return box.toMap().map<String, dynamic>((key, value) => MapEntry<String, dynamic>(key, value));
+    return box.toMap().map<String, dynamic>(
+        (key, value) => MapEntry<String, dynamic>(key, value));
   }
 
   @override
