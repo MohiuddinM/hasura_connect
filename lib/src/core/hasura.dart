@@ -1,6 +1,7 @@
 import 'package:hasura/src/snapshot/snapshot.dart';
 
-import '../../hasura.dart';
+import '../services/local_storage.dart';
+import '../services/local_storage_hive.dart';
 import 'hasura_base.dart';
 
 abstract class HasuraConnect {
