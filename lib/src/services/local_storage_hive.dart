@@ -13,11 +13,11 @@ class LocalStorageHive extends LocalStorage {
   Future init(String name) async {
     if (_completer.isCompleted) return;
     assert(
-      LocalStorage.databasePath != null,
+      LocalStorage.databaseDirectory != null,
       'please set the LocalStorage.databasePath before using hasura',
     );
 
-    Hive.init(LocalStorage.databasePath);
+    Hive.init(LocalStorage.databaseDirectory);
     if (Hive.isBoxOpen(name)) {
       _completer.complete(await Hive.openBox(name));
     } else {

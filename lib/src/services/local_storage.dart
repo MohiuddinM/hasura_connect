@@ -1,5 +1,5 @@
 abstract class LocalStorage {
-  static String databasePath;
+  static String databaseDirectory;
 
   Future init(String name);
 
