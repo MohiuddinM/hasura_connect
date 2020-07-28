@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'local_storage.dart';
 
-class LocalStorageInMemory extends LocalStorage {
+class LocalStorageInMemory implements LocalStorage {
   final Map<String, Map<String, dynamic>> databases = {};
   String name;
 

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:hive/hive.dart';
 import 'local_storage.dart';
 
-class LocalStorageHive extends LocalStorage {
+class LocalStorageHive implements LocalStorage {
   final Completer<Box> _completer = Completer<Box>();
   final String name;
 
